@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商城</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <script src="webjars/jquery/3.4.1/jquery.min.js"></script>
+    <script src="webjars/bootstrap/4.3.1/js/bootstrap.bundle.js" ></script>
+    <script src="webjars/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <!--
+        把东西写到
+        HttpSession session
+    -->
+</head>
+<body>
+<!--页眉-->
+
+<div th:insert="gameMain :: topbar"></div>
+
+<!--导航栏-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" >
+    <a class="navbar-brand offset-1 " href="#">您的商店</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">游戏 <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">软件</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    硬件
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">新闻</a>
+                    <a class="dropdown-item" href="#">Steam新闻</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">其他</a>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">新闻</a>
+            </li>
+        </ul>
+        <!--搜索框-->
+        <form class="form-inline my-2 my-lg-0"  action="findByname" method="post">
+            <input class="form-control mr-sm-2" type="search" placeholder="搜索商店" aria-label="Search" name="gamename">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">查找</button>
+        </form>
+
+    </div>
+</nav>
+
+<!--内容-->
+<div class="card-group">
+    <div class="card" >
+        <img th:src="@{/image/header.jpg}"class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title" th:text="${game.getGamename()}"></h5>
+            <p>价格：[[${game.getGameprice()}]]$</p>
+            <p class="card-text">每一天全球有数百万玩家化为一百余名Dota英雄展开大战。
+                不论是游戏时间刚满10小时还是1000小时，比赛中总能找到新鲜感。
+                定期的更新则保证游戏性、功能和英雄都能持续发展，Dota 2已真正地焕发了生命。</p>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

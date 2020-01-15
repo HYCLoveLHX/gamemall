@@ -1,0 +1,86 @@
+<!--注册-->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>我的伙伴</title>
+		<link href="/webjars/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" />
+		<script src="/webjars/jquery/3.4.1/jquery.min.js"></script>
+		<script src="/webjars/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+		<style>
+		</style>
+		<script>
+
+		</script>
+	</head>
+	<body class="bg-light">
+
+		<div class="container" style="margin-top: 5%">
+			<div class="col-md-8 order-md-1" >
+				<h4 class="mb-3">注册</h4>
+				<form class="needs-validation" th:action="@{/thyAddUser}" method="post">
+					<div class="mb-3">
+						<label for="username">用户名</label>
+						<div class="input-group">
+							<input type="text" class="form-control" id="username" name="username" placeholder="Username" required>
+							<div class="invalid-feedback" style="width: 100%;">
+								Your username is required.
+							</div>
+						</div>
+					</div>
+
+					<div class="mb-3">
+						<label for="password">密码</label>
+						<input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+						<div class="invalid-feedback">
+							Please enter your password.
+						</div>
+					</div>
+
+					<h4 class="mb-3">角色</h4>
+					<div class="d-block my-3">
+						<div class="custom-control custom-radio">
+							<input id="user" name="role" type="radio" class="custom-control-input" checked required value="1">
+							<label class="custom-control-label" for="user">用户</label>
+						</div>
+						<div class="custom-control custom-radio">
+							<input id="admin" name="role" type="radio" class="custom-control-input" required value="2">
+							<label class="custom-control-label" for="admin">管理员</label>
+						</div>
+					</div>
+
+					<h4 class="mb-3">最有印象的时刻(选填)：</h4>
+					<div class="mb-3">
+						<label for="beforeschool">上学前</label>
+						<input type="text" class="form-control" id="beforeschool" placeholder="Beforeschool" name="beforeschool">
+					</div>
+					<div class="mb-3">
+						<label for="kindergarten">幼儿园</label>
+						<input type="text" class="form-control" id="kindergarten" placeholder="Kindergarten" name="kindergarten">
+					</div>
+					<div class="mb-3">
+						<label for="primaryschool">小学</label>
+						<input type="text" class="form-control" id="primaryschool" placeholder="Primaryschool" name="primaryschool">
+					</div>
+					<div class="mb-3">
+						<label for="middleschool">初中</label>
+						<input type="text" class="form-control" id="middleschool" placeholder="Middleschool" name="middleschool">
+					</div>
+					<div class="mb-3">
+						<label for="highschool">高中</label>
+						<input type="text" class="form-control" id="highschool" placeholder="Highschool" name="highschool">
+					</div>
+					<div class="mb-3">
+						<label for="university">大学</label>
+						<input type="text" class="form-control" id="university" placeholder="University" name="university">
+					</div>
+
+					<hr class="mb-4">
+					<button type="submit" class="btn btn-primary btn-lg ">注册</button>
+					<a class="btn btn-primary btn-lg " type="button" th:href="@{/}">返回</a>
+				</form>
+			</div>
+		</div>
+	</body>
+</html>
